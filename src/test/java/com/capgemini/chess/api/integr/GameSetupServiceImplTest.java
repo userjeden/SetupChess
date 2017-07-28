@@ -11,6 +11,7 @@ import com.capgemini.chess.api.GameSetupService;
 import com.capgemini.chess.enums.ChallengeStatus;
 import com.capgemini.chess.exceptions.NoSuchUserException;
 import com.capgemini.chess.service.to.objects.ChallengeTO;
+import com.capgemini.chess.service.to.objects.StatsTO;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -88,6 +89,24 @@ public class GameSetupServiceImplTest {
 		assertFalse(challenges.contains(challenge));
 		challenges.forEach(System.out::println);
 	}
+	
+	
+	@Test
+	public void shouldShowStatsForUserFromChallengeSuggestion() 
+			throws NoSuchUserException {
+		
+		// given
+		long myselfID = 7L;
+		
+		// when
+		List<ChallengeTO> challenges = gameSetupService.suggestFivePossibleChallenges(myselfID);
+		StatsTO statsTo = gameSetupService.showUserStats(challenges.get(0).getCallingUser());
+		
+		// then
+		assertTrue(statsTo.getId() == 1);
+		assertTrue(statsTo.getLogin() == "marco24");
+	}
+	
 	
 }
 
