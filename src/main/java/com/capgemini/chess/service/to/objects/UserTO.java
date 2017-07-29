@@ -121,4 +121,10 @@ public class UserTO {
 		this.lifeMotto = lifeMotto;
 	}
 	
+	
+	@Override
+	public String toString(){
+		return "USER id: " + id + ", login: " + login + ", rank: " + userRank;
+	}
+	
 }

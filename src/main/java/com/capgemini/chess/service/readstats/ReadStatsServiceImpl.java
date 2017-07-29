@@ -1,26 +1,25 @@
 package com.capgemini.chess.service.readstats;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.capgemini.chess.dao.usersstats.UserDao;
+import com.capgemini.chess.dao.stats.StatsDao;
 import com.capgemini.chess.exceptions.NoSuchUserException;
 import com.capgemini.chess.service.to.objects.StatsTO;
 
 @Service
 public class ReadStatsServiceImpl implements ReadStatsService {
 
-	private UserDao userDao;
+	private StatsDao statsDao;
 	
 	@Autowired
-	public ReadStatsServiceImpl(UserDao userDao) {
-		this.userDao = userDao;
+	public ReadStatsServiceImpl(StatsDao statsDao) {
+		this.statsDao = statsDao;
 	}
 	
 
 	@Override
 	public StatsTO getStatsByID(Long id) throws NoSuchUserException {
-		StatsTO stats = userDao.readStatsByID(id);
+		StatsTO stats = statsDao.readStatsByID(id);
 		if(stats == null){
 			throw new NoSuchUserException();
 		}
@@ -30,7 +29,7 @@ public class ReadStatsServiceImpl implements ReadStatsService {
 	
 	@Override
 	public StatsTO getStatsByLogin(String login) throws NoSuchUserException {
-		StatsTO stats = userDao.readStatsByLogin(login);
+		StatsTO stats = statsDao.readStatsByLogin(login);
 		if(stats == null){
 			throw new NoSuchUserException();
 		}

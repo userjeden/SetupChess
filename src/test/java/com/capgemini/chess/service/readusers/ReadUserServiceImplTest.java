@@ -1,5 +1,4 @@
 package com.capgemini.chess.service.readusers;
-
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
@@ -8,8 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 import com.capgemini.chess.dao.UserEntity;
-import com.capgemini.chess.dao.usersstats.UserDao;
-import com.capgemini.chess.dao.usersstats.UserDaoImpl;
+import com.capgemini.chess.dao.users.UserDao;
+import com.capgemini.chess.dao.users.UserDaoImpl;
 import com.capgemini.chess.exceptions.NoSuchUserException;
 import com.capgemini.chess.service.to.mapper.CommonMapper;
 import com.capgemini.chess.service.to.objects.UserTO;

@@ -1,4 +1,4 @@
-package com.capgemini.chess.dao.usersstats;
+package com.capgemini.chess.dao.statsusers;
 import java.util.List;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.capgemini.chess.api.integr.DatabaseConfigurationForTest;
-import com.capgemini.chess.dao.usersstats.UserDao;
+import com.capgemini.chess.dao.users.UserDao;
 import com.capgemini.chess.service.to.objects.UserTO;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -52,6 +52,7 @@ public class UserDaoImplTest {
 		List<UserTO> users = userDao.readUsersByRank(5, 2);
 
 		// then
+		users.forEach(System.out::println);
 		assertEquals(3, users.size());
 	}
 	
@@ -65,7 +66,6 @@ public class UserDaoImplTest {
 		// then
 		assertTrue(user == null);
 	}
-	
 	
 }
 

@@ -141,4 +141,10 @@ public class UserEntity {
 	}
 	
 	
+	@Override
+	public String toString(){
+		return "USER id: " + id + ", login: " + login + ", rank: " + userValue;
+	}
+	
+	
 }

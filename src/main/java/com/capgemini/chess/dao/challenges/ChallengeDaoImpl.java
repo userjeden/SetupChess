@@ -1,6 +1,5 @@
 package com.capgemini.chess.dao.challenges;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Repository;
@@ -12,13 +11,18 @@ import com.capgemini.chess.service.to.objects.ChallengeTO;
 @Repository
 public class ChallengeDaoImpl implements ChallengeDao {
 
-	private final Set<ChallengeEntity> challenges = new HashSet<>();
+	private final Set<ChallengeEntity> challenges;
 
 	public ChallengeDaoImpl() {
+		this.challenges = new HashSet<>();
+		System.err.println("CHALLENGE REPOSITORY CONTENT:");
+		this.challenges.forEach(System.err::println);
 	}
 	
-	public ChallengeDaoImpl(List<ChallengeEntity> challenges) {
-		this.challenges.addAll(challenges);
+	public ChallengeDaoImpl(Set<ChallengeEntity> challenges) {
+		this.challenges = challenges;
+		System.err.println("CHALLENGE REPOSITORY CONTENT:");
+		this.challenges.forEach(System.err::println);
 	}
 	
 
@@ -53,5 +57,3 @@ public class ChallengeDaoImpl implements ChallengeDao {
 	}
 	
 }
-
-
