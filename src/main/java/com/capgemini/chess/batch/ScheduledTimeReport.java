@@ -1,5 +1,4 @@
 package com.capgemini.chess.batch;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

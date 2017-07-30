@@ -1,4 +1,6 @@
 package com.capgemini.chess.service.readstats;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,16 @@ public class ReadStatsServiceImpl implements ReadStatsService {
 			throw new NoSuchUserException();
 		}
 		return stats;
+	}
+
+
+	@Override
+	public List<StatsTO> getStatsByID(Long[] userIds) throws NoSuchUserException {
+		List<StatsTO> statsList = statsDao.readStatsByID(userIds);
+		if(statsList.size() == 0){
+			throw new NoSuchUserException();
+		}
+		return statsList;
 	}
 
 }

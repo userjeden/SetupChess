@@ -1,5 +1,4 @@
 package com.capgemini.chess.api;
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,18 +24,18 @@ public class GameSetupServiceImpl implements GameSetupService {
 	
 	
 	@Override
-	public List<ChallengeTO> suggestFivePossibleChallenges(long myselfId) throws NoSuchUserException {
+	public List<ChallengeTO> suggestFivePossibleChallenges(Long myselfId) throws NoSuchUserException {
 		return challengeService.suggestFivePossibleChallenges(myselfId);
 	}
 
 	@Override
-	public ChallengeTO setupChallenge(long defendingId, long callingId) throws NoSuchUserException {
+	public ChallengeTO setupChallenge(Long defendingId, Long callingId) throws NoSuchUserException {
 		return challengeService.setupChallenge(defendingId, callingId);
 	}
 
 	@Override
-	public StatsTO showUserStats(long userId) throws NoSuchUserException {
-		return readStatServ.getStatsByID(userId);
+	public List<StatsTO> showUserStats(Long[] userIds) throws NoSuchUserException {
+		return readStatServ.getStatsByID(userIds);
 	}
 
 }

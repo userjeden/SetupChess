@@ -13,7 +13,6 @@ import com.capgemini.chess.exceptions.NoSuchUserException;
 import com.capgemini.chess.service.to.objects.ChallengeTO;
 import com.capgemini.chess.service.to.objects.StatsTO;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {DatabaseConfigurationForTest.class, ChessApplication.class})
 public class GameSetupServiceImplTest {
@@ -53,7 +52,6 @@ public class GameSetupServiceImplTest {
 		
 		// then
 		assertTrue(challenges.contains(challenge));
-		challenges.forEach(System.out::println);
 	}
 
 	
@@ -69,7 +67,6 @@ public class GameSetupServiceImplTest {
 		
 		// then
 		assertTrue(challenges.size() == 3);
-		challenges.forEach(System.out::println);
 	}
 	
 
@@ -87,12 +84,11 @@ public class GameSetupServiceImplTest {
 		// then
 		assertTrue(challenge.getStatus() == ChallengeStatus.ACCEPTED);
 		assertFalse(challenges.contains(challenge));
-		challenges.forEach(System.out::println);
 	}
 	
 	
 	@Test
-	public void shouldShowStatsForUserFromChallengeSuggestion() 
+	public void shouldShowStatsForUsersFromChallengeSuggestion() 
 			throws NoSuchUserException {
 		
 		// given
@@ -100,13 +96,12 @@ public class GameSetupServiceImplTest {
 		
 		// when
 		List<ChallengeTO> challenges = gameSetupService.suggestFivePossibleChallenges(myselfID);
-		StatsTO statsTo = gameSetupService.showUserStats(challenges.get(0).getCallingUser());
+		Long[] userIds = {challenges.get(0).getCallingUser(), challenges.get(0).getDefendingUser()};
+		List<StatsTO> statsTo = gameSetupService.showUserStats(userIds);
 		
 		// then
-		assertTrue(statsTo.getId() == 1);
-		assertTrue(statsTo.getLogin() == "marco24");
+		assertTrue(statsTo.get(0).getLogin() == "marco24");
+		assertTrue(statsTo.get(1).getLogin() == "stefano");
 	}
 	
-	
 }
-
