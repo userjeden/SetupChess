@@ -15,14 +15,14 @@ public class ChallengeDaoImpl implements ChallengeDao {
 
 	public ChallengeDaoImpl() {
 		this.challenges = new HashSet<>();
-		System.err.println("CHALLENGE REPOSITORY CONTENT:");
-		this.challenges.forEach(System.err::println);
+		System.out.println("CHALLENGE REPOSITORY CONTENT:");
+		this.challenges.forEach(System.out::println);
 	}
 	
 	public ChallengeDaoImpl(Set<ChallengeEntity> challenges) {
 		this.challenges = challenges;
-		System.err.println("CHALLENGE REPOSITORY CONTENT:");
-		this.challenges.forEach(System.err::println);
+		System.out.println("CHALLENGE REPOSITORY CONTENT:");
+		this.challenges.forEach(System.out::println);
 	}
 	
 

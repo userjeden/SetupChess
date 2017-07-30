@@ -88,14 +88,13 @@ public class CommonMapper {
 	}
 	
 	
-	public static List<UserTO> map2TOs(List<UserEntity> userEntities) {
+	public static List<UserTO> map2UserTOs(List<UserEntity> userEntities) {
 		return userEntities.stream().map(CommonMapper::map).collect(Collectors.toList());
 	}
 	
-
-	public static List<UserEntity> map2Entities(List<UserTO> userTOs) {
-		return userTOs.stream().map(CommonMapper::map).collect(Collectors.toList());
-	}
 	
+	public static List<StatsTO> map2StatsTOs(List<UserEntity> userEntities) {
+		return userEntities.stream().map(CommonMapper::mapForStats).collect(Collectors.toList());
+	}
 	
 }

@@ -1,9 +1,9 @@
 package com.capgemini.chess.api;
-
 import java.util.List;
 import com.capgemini.chess.exceptions.NoSuchUserException;
 import com.capgemini.chess.service.to.objects.ChallengeTO;
 import com.capgemini.chess.service.to.objects.StatsTO;
+
 
 public interface GameSetupService {
 	
@@ -13,7 +13,7 @@ public interface GameSetupService {
 	 * includes challenges called on the user. Then the list is filled with 
 	 * suggestions of other possible challenges.
 	 */
-	public List<ChallengeTO> suggestFivePossibleChallenges(long myselfId) 
+	public List<ChallengeTO> suggestFivePossibleChallenges(Long myselfId) 
 			throws NoSuchUserException;
 	
 	
@@ -22,14 +22,14 @@ public interface GameSetupService {
 	 * If the contrary challenge already exists - then the challenge
 	 * is automatically accepted.
 	 */
-	public ChallengeTO setupChallenge(long defendingId, long callingId) 
+	public ChallengeTO setupChallenge(Long defendingId, Long callingId) 
 			throws NoSuchUserException;
 	
 	
 	/*
-	 * Brings statistics for the given user.
+	 * Brings statistics for the array of given users.
 	 */
-	public StatsTO showUserStats(long userId) throws NoSuchUserException;
+	public List<StatsTO> showUserStats(Long[] userIds) 
+			throws NoSuchUserException;
 	
 }
-

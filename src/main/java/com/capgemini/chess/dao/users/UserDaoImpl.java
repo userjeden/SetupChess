@@ -15,14 +15,14 @@ public class UserDaoImpl implements UserDao {
 
 	public UserDaoImpl() {
 		this.users = new HashSet<>();
-		System.err.println("USER REPOSITORY CONTENT:");
-		this.users.forEach(System.err::println);
+		System.out.println("USER REPOSITORY CONTENT:");
+		this.users.forEach(System.out::println);
 	}
 	
 	public UserDaoImpl(Set<UserEntity> users){
 		this.users = users;
-		System.err.println("USER REPOSITORY CONTENT:");
-		this.users.forEach(System.err::println);
+		System.out.println("USER REPOSITORY CONTENT:");
+		this.users.forEach(System.out::println);
 	}
 
 	
@@ -42,7 +42,7 @@ public class UserDaoImpl implements UserDao {
 	public List<UserTO> readUsersByRank(int rank, int range) {
 		List<UserEntity> userEntities = users.stream().filter(u -> ((u.getUserValue() <= rank + range) 
 				&& (u.getUserValue() >= rank - range))).collect(Collectors.toList());
-		return CommonMapper.map2TOs(userEntities);
+		return CommonMapper.map2UserTOs(userEntities);
 	}
 
 }

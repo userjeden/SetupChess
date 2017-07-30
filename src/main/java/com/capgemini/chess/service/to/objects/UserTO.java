@@ -1,5 +1,4 @@
 package com.capgemini.chess.service.to.objects;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
