@@ -84,9 +84,8 @@ public class ReadStatsServiceImplTest {
 		try {
 			statsA = readStatsService.getStatsByID(4L);
 		} catch (NoSuchUserException e) {
-		} finally {
 			exceptionThrown = true;
-		}
+		} 
 		
 		// then
 		assertTrue(statsA == null);
@@ -106,7 +105,6 @@ public class ReadStatsServiceImplTest {
 		try {
 			statsA = readStatsService.getStatsByLogin("lulu");
 		} catch (NoSuchUserException e) {
-		} finally {
 			exceptionThrown = true;
 		}
 		

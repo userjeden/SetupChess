@@ -33,9 +33,7 @@ public class GameSetupServiceImplTest {
 		List<ChallengeTO> challenges = gameSetupService.suggestFivePossibleChallenges(myselfID);
 		
 		// then
-		assertEquals(5, challenges.size());
-		assertTrue((challenges.get(0).getStatus() == ChallengeStatus.THROWN) 
-				|| (challenges.get(0).getStatus() == ChallengeStatus.POTENTIAL));
+		assertTrue(challenges.size() == 5);
 	}
 	
 	
@@ -82,7 +80,7 @@ public class GameSetupServiceImplTest {
 		List<ChallengeTO> challenges = gameSetupService.suggestFivePossibleChallenges(myselfID);
 		
 		// then
-		assertTrue(challenge.getStatus() == ChallengeStatus.ACCEPTED);
+		assertEquals(ChallengeStatus.ACCEPTED, challenge.getStatus());
 		assertFalse(challenges.contains(challenge));
 	}
 	
@@ -100,8 +98,8 @@ public class GameSetupServiceImplTest {
 		List<StatsTO> statsTo = gameSetupService.showUserStats(userIds);
 		
 		// then
-		assertTrue(statsTo.get(0).getLogin() == "marco24");
-		assertTrue(statsTo.get(1).getLogin() == "stefano");
+		assertEquals("marco24", statsTo.get(0).getLogin());
+		assertEquals("stefano", statsTo.get(1).getLogin());
 	}
 	
 }

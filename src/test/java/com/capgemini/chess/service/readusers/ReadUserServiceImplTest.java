@@ -85,9 +85,8 @@ public class ReadUserServiceImplTest {
 		try {
 			userA = readUserService.getUserByID(4L);
 		} catch (NoSuchUserException e) {
-		} finally {
 			exceptionThrown = true;
-		}
+		} 
 		
 		// then
 		assertTrue(userA == null);
@@ -107,9 +106,8 @@ public class ReadUserServiceImplTest {
 		try {
 			userA = readUserService.getUserByLogin("lulu");
 		} catch (NoSuchUserException e) {
-		} finally {
 			exceptionThrown = true;
-		}
+		} 
 		
 		// then
 		assertTrue(userA == null);

@@ -52,7 +52,6 @@ public class UserDaoImplTest {
 		List<UserTO> users = userDao.readUsersByRank(5, 2);
 
 		// then
-		users.forEach(System.out::println);
 		assertEquals(3, users.size());
 	}
 	

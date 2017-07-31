@@ -42,7 +42,7 @@ public class ReadStatsServiceImpl implements ReadStatsService {
 	@Override
 	public List<StatsTO> getStatsByID(Long[] userIds) throws NoSuchUserException {
 		List<StatsTO> statsList = statsDao.readStatsByID(userIds);
-		if(statsList.size() == 0){
+		if(statsList.size() != userIds.length){
 			throw new NoSuchUserException();
 		}
 		return statsList;
